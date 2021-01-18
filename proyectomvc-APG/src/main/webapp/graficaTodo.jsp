@@ -51,7 +51,7 @@
         <!-- Grafica peliculas por genero-->
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
-                <h2 class="mb-4">Numero de películas por genero</h2>
+                <h2 class="mb-4">Numero de películas por género</h2>
 
                 <hr class="divider my-4" />
                 <br>
