@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-       <meta charset="utf-8" />
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -69,10 +69,23 @@
                                     <h:outputText value="${dto.entidad.descripcionGenero}"/>                                   
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Editar</f:facet>                                  
+                                    <f:facet name="header">Actualizar</f:facet>
+                                    <h:commandLink action="#{GeneroMB.prepareUpdate()}"
+                                                   immediate="true"
+                                                   actionListener="#{GeneroMB.seleccionarGenero(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>
+                                        <h:graphicImage value="/icons/icn-002.png"/>
+                                    </h:commandLink>                          
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Eliminar</f:facet>
+                                    <h:commandLink action="#{GeneroMB.delete()}"
+                                                   immediate="true"
+                                                   actionListener="#{GeneroMB.seleccionarGenero(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>
+                                        <h:graphicImage value="/icons/icn-001.png"/>
+
+                                    </h:commandLink>    
                                 </h:column>
                             </h:dataTable>
                         </h:form>

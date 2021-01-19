@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.ipn.mx.controlador.web;
+
 import com.ipn.mx.modelo.dao.GeneroDAO;
 import com.ipn.mx.modelo.dto.GeneroDTO;
 import java.awt.event.ActionEvent;
@@ -15,87 +16,88 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-
 /**
  *
  * @author Atziri Perez
  */
 @ManagedBean(name = "GeneroMB")
 @SessionScoped
-public class GeneroMB extends BaseBean implements Serializable{
+public class GeneroMB extends BaseBean implements Serializable {
+
     private final GeneroDAO dao = new GeneroDAO();
     private GeneroDTO dto;
     private List<GeneroDTO> listaGeneros;
-    
+
     /**
      * Creates a new instance of GeneroMB
      */
     public GeneroMB() {
     }
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         listaGeneros = new ArrayList<>();
         listaGeneros = dao.readAll();
     }
-    
-    public String prepareAdd(){
+
+    public String prepareAdd() {
         dto = new GeneroDTO();
         setAccion(ACC_CREAR);
-        return "/categoria/categoriaForm?faces-redirect=true";
+        return "/generoForm?faces-redirect=true";
     }
-    
-    public String prepareUpdate(){
+
+    public String prepareUpdate() {
         setAccion(ACC_ACTUALIZAR);
-        return "/categoria/categoriaForm?faces-redirect=true";
+        return "/generoForm?faces-redirect=true";
     }
-    
-    public String prepareIndex(){
+
+    public String prepareIndex() {
         init();
-        return "/categoria/listadoGeneros?faces-redirect=true";
+        return "/listaGeneros?faces-redirect=true";
     }
-    
-    public String back(){
+
+    public String back() {
         return prepareIndex();
     }
-    
-    public boolean validate(){
+
+    public boolean validate() {
         boolean valido = true;
         //las validaciones
         return valido;
     }
-    
-    public String add(){
+
+    public String add() {
         boolean valido = validate();
         if (valido) {
             dao.create(dto);
             return prepareIndex();
-        } else{
+        } else {
             return prepareAdd();
         }
     }
-    
-    public String update(){
+
+    public String update() {
         boolean valido = validate();
         if (valido) {
             dao.update(dto);
             return prepareIndex();
-        } else{
+        } else {
             return prepareUpdate();
         }
     }
-    
-    public String delete(){
+
+    public String delete() {
         dao.delete(dto);
         return prepareIndex();
     }
-    
-    public void seleccionarCateoria(ActionEvent event){
+
+    public void seleccionarGenero(ActionEvent event) {
         String claveSel = (String) 
                 FacesContext.getCurrentInstance().
                         getExternalContext().
                         getRequestParameterMap().get("claveSel");
         dto = new GeneroDTO();
+        dto.getEntidad().setIdGenero(Integer.parseInt(claveSel));
         try {
             dao.read(dto);
         } catch (Exception e) {
@@ -118,4 +120,4 @@ public class GeneroMB extends BaseBean implements Serializable{
     public void setListaGeneros(List<GeneroDTO> listaGeneros) {
         this.listaGeneros = listaGeneros;
     }
- }
+}

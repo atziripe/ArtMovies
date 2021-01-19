@@ -2,6 +2,7 @@ package com.ipn.mx.controlador.web;
 
 import java.io.Serializable;
 import lombok.Data;
+
 /**
  *
  * @author Atziri Perez
