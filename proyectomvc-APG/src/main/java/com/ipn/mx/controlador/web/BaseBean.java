@@ -11,6 +11,7 @@ import lombok.Data;
 public class BaseBean implements Serializable {
     protected static final String ACC_CREAR = "CREAR";
     protected static final String ACC_ACTUALIZAR = "ACTUALIZAR";
+    protected static final String ACC_LEER = "LEER";
     protected String accion;
     
     public boolean isModoCrear(){
@@ -24,6 +25,14 @@ public class BaseBean implements Serializable {
     public boolean isModoActualizar(){
         if(accion != null){
             return accion.equals(ACC_ACTUALIZAR);
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean isModoLeer(){
+        if(accion != null){
+            return accion.equals(ACC_LEER);
         }else{
             return false;
         }

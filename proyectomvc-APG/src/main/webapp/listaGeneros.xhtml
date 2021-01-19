@@ -58,15 +58,21 @@
                                 value="#{GeneroMB.listaGeneros}">
                                 <h:column>
                                     <f:facet name="header">Clave Genero</f:facet>
-                                    <h:outputText value="${dto.entidad.idGenero}"/>
+                                    <h:commandLink action="#{GeneroMB.prepareRead()}"
+                                                       immediate="true"
+                                                       actionListener="#{GeneroMB.seleccionarGenero(event)}">
+                                            <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>   
+                                            <h:outputText value="#{dto.entidad.idGenero}"/>
+                                    </h:commandLink>  
+                                    <h:outputText value="#{dto.entidad.idGenero}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Nombre Genero</f:facet>
-                                    <h:outputText value="${dto.entidad.nombreGenero}"/>
+                                    <h:outputText value="#{dto.entidad.nombreGenero}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Descripcion Genero</f:facet>
-                                    <h:outputText value="${dto.entidad.descripcionGenero}"/>                                   
+                                    <h:outputText value="#{dto.entidad.descripcionGenero}"/>                                   
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Actualizar</f:facet>

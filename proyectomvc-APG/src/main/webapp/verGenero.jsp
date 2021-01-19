@@ -74,7 +74,7 @@
             </div>
         </section>
 
-        <!-- Tabla producots-->
+        <!-- Tabla producots-->       
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">Peliculas de esta genero</h2>
