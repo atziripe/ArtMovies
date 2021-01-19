@@ -37,5 +37,4 @@ public class BaseBean implements Serializable {
             return false;
         }
     }
-
 }
