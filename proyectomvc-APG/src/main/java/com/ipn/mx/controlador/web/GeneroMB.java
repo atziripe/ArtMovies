@@ -46,14 +46,13 @@ public class GeneroMB extends BaseBean implements Serializable {
         return "/generoForm?faces-redirect=true";
     }
     public String prepareRead() {
-        dto = new GeneroDTO();
         setAccion(ACC_LEER);
         return "/verGenero?faces-redirect=true";
     }
 
     public String prepareUpdate() {
         setAccion(ACC_ACTUALIZAR);
-        return "/generoForm?faces-redirect=true";
+        return "/verGenero?faces-redirect=true";
     }
 
     public String prepareIndex() {

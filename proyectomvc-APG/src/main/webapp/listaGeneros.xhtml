@@ -64,7 +64,6 @@
                                             <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>   
                                             <h:outputText value="#{dto.entidad.idGenero}"/>
                                     </h:commandLink>  
-                                    <h:outputText value="#{dto.entidad.idGenero}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Nombre Genero</f:facet>
@@ -90,7 +89,6 @@
                                                    actionListener="#{GeneroMB.seleccionarGenero(event)}">
                                         <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>
                                         <i class="fas fa-2x fa-trash-alt text-primary mb-4"></i>
-
                                     </h:commandLink>    
                                 </h:column>
                             </h:dataTable>

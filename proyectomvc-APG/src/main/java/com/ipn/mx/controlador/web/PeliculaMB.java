@@ -46,6 +46,11 @@ public class PeliculaMB extends BaseBean implements Serializable {
         return "/peliculaForm?faces-redirect=true";
     }
 
+    public String prepareRead() {
+        setAccion(ACC_LEER);
+        return "/verPelicula?faces-redirect=true";
+    }
+    
     public String prepareUpdate() {
         setAccion(ACC_ACTUALIZAR);
         return "/peliculaForm?faces-redirect=true";

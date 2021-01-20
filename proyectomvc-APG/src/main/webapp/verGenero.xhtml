@@ -65,6 +65,77 @@
                 </div>
             </div>
         </section>
+        
+         <!-- Tabla peliculas-->
+        <section class="page-section bg-dark text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Lista de peliculas de <h:outputText value="#{GeneroMB.dto.entidad.nombreGenero}"/></h2>
+
+                <hr class="divider my-4" />
+                <br></br>
+                <h:panelGrid>
+                    <f:view>
+                        <h:form id="frmGenero">
+                            <h:dataTable
+                                var="dto"
+                                value="#{PeliculaMB.listaPeliculas}">
+                                <h:column>
+                                    <f:facet name="header">Clave Pelicula&nbsp;&nbsp;</f:facet>
+                                    <h:commandLink action="#{PeliculaMB.prepareRead()}"
+                                                       immediate="true"
+                                                       actionListener="#{PeliculaMB.seleccionarPelicula(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idPelicula}"/>   
+                                            <h:outputText value="#{dto.entidad.idPelicula}"/>
+                                    </h:commandLink>  
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Nombre Pelicula&nbsp;&nbsp;</f:facet>
+                                    <h:outputText value="#{dto.entidad.nombrePelicula}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Clasifiación&nbsp;&nbsp;</f:facet>
+                                    <h:outputText value="#{dto.entidad.clasificacion}"/>                                   
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Duración&nbsp;&nbsp;</f:facet>
+                                    <h:outputText value="#{dto.entidad.duracion}"/>                                   
+                                </h:column> 
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp; Votos positivos &nbsp;&nbsp;</f:facet>
+                                    <i class="fas fa-2x fa-heart text-info mb-4"></i>
+                                    <h:outputText value="#{dto.entidad.votosPositivos}"/>                                   
+                                </h:column> 
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Votos negativos&nbsp;&nbsp;</f:facet>
+                                    <i class="fas fa-2x fa-heart-broken text-info mb-4"></i>
+                                    <h:outputText value="#{dto.entidad.votosNegativos}"/>                                   
+                                </h:column> 
+                                
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Actualizar&nbsp;&nbsp;</f:facet>
+                                    <h:commandLink action="#{PeliculaMB.prepareUpdate()}"
+                                                   immediate="true"
+                                                   actionListener="#{PeliculaMB.seleccionarPelicula(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idPelicula}"/>
+                                        <i class="fas fa-2x fa-pencil-alt text-success mb-4"></i>
+                                    </h:commandLink>                          
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Eliminar</f:facet>
+                                    <h:commandLink action="#{PeliculaMB.delete()}"
+                                                   immediate="true"
+                                                   actionListener="#{PeliculaMB.seleccionarPelicula(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idPelicula}"/>
+                                        <i class="fas fa-2x fa-trash-alt text-primary mb-4"></i>
+                                    </h:commandLink>    
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </f:view>
+                </h:panelGrid>    
+            </div>
+        </section>
     </h:body>
 </html>
 
