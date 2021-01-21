@@ -53,31 +53,31 @@
                                 var="dto"
                                 value="#{UsuarioMB.listaUsuarios}">
                                 <h:column>
-                                    <f:facet name="header">Username</f:facet>
+                                    <f:facet name="header">Username&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.nombreUsuario}"/>
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Nombre</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Nombre&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.nombre}"/>
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Apellido Paterno</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Apellido Paterno&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.paterno}"/>                                   
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Apellido Materno</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Apellido Materno&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.materno}"/>                                   
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Email</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Email&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.email}"/>                                   
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Tipo Usuario</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Tipo Usuario&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.tipoUsuario}"/>                                   
                                 </h:column>                                
                                 <h:column>
-                                    <f:facet name="header">Eliminar</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Eliminar</f:facet>
                                     <h:commandLink action="#{UsuarioMB.delete()}"
                                                    immediate="true"
                                                    actionListener="#{UsuarioMB.seleccionarUsuario(event)}">

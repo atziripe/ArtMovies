@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Registro</title>
+
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Main css -->    
+        <link rel="stylesheet" href="css/styleUser.css"/>
+        <link href="css/styles.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <div class="main">
+            <!-- Barra de navegación-->
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand" href="index.jsp">Producto por Categoría</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                </div>
+            </nav>
+
+            <!-- Sign up form -->
+            <section class="signup">
+                <div class="container">
+                    <div class="signup-content">
+                        <div class="signup-form">
+                            <h2 class="form-title">Registrate</h2>
+                            <h:form class="register-form" id="register-form">
+                                <h:inputHidden id="accion" value="#{UsuarioMB.accion}"/>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Nombre"
+                                        id="name"  
+                                        required="true"
+                                        requiredMessage="El nombre es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="name"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Apellido Paterno"
+                                        id="apPat"  
+                                        required="true"
+                                        requiredMessage="El apellido paterno es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="apPAt"/>
+                                </div>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Apellido materno"
+                                        id="apMat"  
+                                        required="true"
+                                        requiredMessage="El apellido materno es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="apMat"/>
+                                </div>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="far fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Nombre de usuario"
+                                        id="username"  
+                                        required="true"
+                                        requiredMessage="El username es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="username"/>
+                                </div>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="far fa-envelope text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Email"
+                                        id="email"  
+                                        required="true"
+                                        requiredMessage="El email es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="email"/>
+                                </div>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-key text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Contraseña"
+                                        id="pass"  
+                                        required="true"
+                                        requiredMessage="La contraseña es obligatoria">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="pass"/>
+                                </div>
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-key text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Repite contraseña"
+                                        id="pass2"  
+                                        required="true"
+                                        requiredMessage="LA contraseña es obligatoria">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="pass2"/>
+                                </div> 
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </h:body>
+</html>
+
