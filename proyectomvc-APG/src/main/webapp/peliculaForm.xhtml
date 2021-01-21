@@ -51,6 +51,25 @@
 
                         <div class="form-group row">
                             <h:outputLabel 
+                                value="Id Genero"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtIdPelicula"
+                                    value="#{PeliculaMB.dto.entidad.idGenero}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El id de genero es obligatorio"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtIdGenero"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <h:outputLabel 
                                 value="Nombre Pelicula"
                                 class="col-sm-2 col-form-label"
                                 />
@@ -67,6 +86,122 @@
                                 <h:message for="txtNombrePelicua"/>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Sinopsis Pelicula"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtSinopsisPelicula"
+                                    value="#{PeliculaMB.dto.entidad.sinopsis}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="La sinopsis es obligatoria"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtSinopsisPelicula"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Clasificacion Pelicula"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtClasificacion"
+                                    value="#{PeliculaMB.dto.entidad.clasificacion}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="La clasificacion es obligatoria"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtClasificacion"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Anio de Pelicula"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtAnio"
+                                    value="#{PeliculaMB.dto.entidad.anio}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El anio es obligatorio"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtAnio"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Duracion de Pelicula"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtDuracion"
+                                    value="#{PeliculaMB.dto.entidad.duracion}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="La duracion es obligatoria"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtDuracion"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Director de Pelicula"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="Director"
+                                    value="#{PeliculaMB.dto.entidad.director}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El director es obligatorio"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="Director"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <h:outputLabel 
+                                value="Link"
+                                class="col-sm-2 col-form-label"
+                                />
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="link"
+                                    value="#{PeliculaMB.dto.entidad.link}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El link es obligatorio"
+                                    >
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="link"/>
+                            </div>
+                        </div>  
+                        
+                        
                         </h:form>
 
 
