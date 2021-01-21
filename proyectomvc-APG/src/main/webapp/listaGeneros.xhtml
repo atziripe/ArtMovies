@@ -59,10 +59,10 @@
                                 <h:column>
                                     <f:facet name="header">Clave Genero</f:facet>
                                     <h:commandLink action="#{GeneroMB.prepareRead()}"
-                                                       immediate="true"
-                                                       actionListener="#{GeneroMB.seleccionarGenero(event)}">
-                                            <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>   
-                                            <h:outputText value="#{dto.entidad.idGenero}"/>
+                                                   immediate="true"
+                                                   actionListener="#{GeneroMB.seleccionarGenero(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idGenero}"/>   
+                                        <h:outputText value="#{dto.entidad.idGenero}"/>
                                     </h:commandLink>  
                                 </h:column>
                                 <h:column>
@@ -92,6 +92,10 @@
                                     </h:commandLink>    
                                 </h:column>
                             </h:dataTable>
+                            <h:commandLink
+                                value="Nuevo"
+                                action="#{GeneroMB.prepareAdd()}"
+                                class="btn btn-success"/>
                         </h:form>
                     </f:view>
                 </h:panelGrid>    

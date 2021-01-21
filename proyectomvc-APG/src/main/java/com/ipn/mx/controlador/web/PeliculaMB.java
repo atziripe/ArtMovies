@@ -106,7 +106,7 @@ public class PeliculaMB extends BaseBean implements Serializable {
                         getExternalContext().
                         getRequestParameterMap().get("claveSelG");
         dtoP = new GeneroDTO();
-        dto.getEntidad().setIdGenero(Integer.parseInt(claveSelG));
+        //dto.getEntidad().setIdGenero(Integer.parseInt(claveSelG));
         try {
             dao.read(dto);
         } catch (Exception e) {

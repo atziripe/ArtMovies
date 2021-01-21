@@ -27,8 +27,8 @@
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="inicioAdmin.jsp">Pelicula por Genero</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=listaDeGeneros">Lista de Categorías</a></li>
@@ -65,8 +65,8 @@
                 </div>
             </div>
         </section>
-        
-         <!-- Tabla peliculas-->
+
+        <!-- Tabla peliculas-->
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">Lista de peliculas de <h:outputText value="#{GeneroMB.dto.entidad.nombreGenero}"/></h2>
@@ -77,16 +77,15 @@
                     <f:view>
                         <h:form id="frmGenero">
                             <h:dataTable
-                                 <f:param name="claveSelG" value="#{dto.entidad.idPelicula}"/>   
                                 var="dto"
                                 value="#{PeliculaMB.listaPeliculas}">
                                 <h:column>
                                     <f:facet name="header">Clave Pelicula&nbsp;&nbsp;</f:facet>
                                     <h:commandLink action="#{PeliculaMB.prepareRead()}"
-                                                       immediate="true"
-                                                       actionListener="#{PeliculaMB.seleccionarPelicula(event)}">
+                                                   immediate="true"
+                                                   actionListener="#{PeliculaMB.seleccionarPelicula(event)}">
                                         <f:param name="claveSel" value="#{dto.entidad.idPelicula}"/>   
-                                            <h:outputText value="#{dto.entidad.idPelicula}"/>
+                                        <h:outputText value="#{dto.entidad.idPelicula}"/>
                                     </h:commandLink>  
                                 </h:column>
                                 <h:column>
@@ -97,7 +96,7 @@
                                     <f:facet name="header">&nbsp;&nbsp;Clasifiación&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.clasificacion}"/>                                   
                                 </h:column>
-                                
+
                                 <h:column>
                                     <f:facet name="header">&nbsp;&nbsp;Duración&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.duracion}"/>                                   
@@ -112,7 +111,7 @@
                                     <i class="fas fa-2x fa-heart-broken text-info mb-4"></i>
                                     <h:outputText value="#{dto.entidad.votosNegativos}"/>                                   
                                 </h:column> 
-                                
+
                                 <h:column>
                                     <f:facet name="header">&nbsp;&nbsp;Actualizar&nbsp;&nbsp;</f:facet>
                                     <h:commandLink action="#{PeliculaMB.prepareUpdate()}"
