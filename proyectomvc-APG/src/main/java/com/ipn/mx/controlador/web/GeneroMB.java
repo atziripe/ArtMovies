@@ -52,7 +52,7 @@ public class GeneroMB extends BaseBean implements Serializable {
 
     public String prepareUpdate() {
         setAccion(ACC_ACTUALIZAR);
-        return "/verGenero?faces-redirect=true";
+        return "/generoForm?faces-redirect=true";
     }
 
     public String prepareIndex() {
