@@ -119,28 +119,28 @@ public class PeliculaDAO {
 
         public static void main(String[] args) {
         PeliculaDAO dao = new PeliculaDAO();
-        GeneroDTO dto = new GeneroDTO();
+        PeliculaDTO dto = new PeliculaDTO();
         
-        dto.getEntidad().setIdGenero(1);
+        //dto.getEntidad().setIdGenero(1);
 
-//        dto.getEntidad().setIdPelicula(7);
-//        dto.getEntidad().setIdGenero(4);
-//        dto.getEntidad().setNombrePelicula("¿Dónde están las weras?");
-//        dto.getEntidad().setSinopsis("Unas weras");
-//        dto.getEntidad().setClasificacion("AA");
-//        dto.getEntidad().setAnio(2000);
-//        dto.getEntidad().setDuracion(102);
-//        dto.getEntidad().setDirector("Director");
-//        dto.getEntidad().setVotosPositivos(0);
-//        dto.getEntidad().setVotosNegativos(0);
-//        dto.getEntidad().setLink("sdgsdgdsgdsfgds");
+        //dto.getEntidad().setIdPelicula(6);
+        dto.getEntidad().setIdGenero(4);
+        dto.getEntidad().setNombrePelicula("¿Dónde están las weras?");
+        dto.getEntidad().setSinopsis("Unas weras");
+        dto.getEntidad().setClasificacion("AA");
+        dto.getEntidad().setAnio(2000);
+        dto.getEntidad().setDuracion(102);
+        dto.getEntidad().setDirector("Director");
+        dto.getEntidad().setVotosPositivos(0);
+        dto.getEntidad().setVotosNegativos(0);
+        dto.getEntidad().setLink("sdgsdgdsgdsfgds");
 
 //        dao.update(dto);
 //        dao.delete(dto);
-//        dao.create(dto);
+        dao.create(dto);
         
 //System.out.println(dao.readAll());
-System.out.println(dao.readGen(dto));
+//System.out.println(dao.readGen(dto));
     }
 
 }
