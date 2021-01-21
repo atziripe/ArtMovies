@@ -27,7 +27,6 @@ public class PeliculaMB extends BaseBean implements Serializable {
 
     private final PeliculaDAO dao = new PeliculaDAO();
     private PeliculaDTO dto;
-    private GeneroDTO dtoP;
     private List<PeliculaDTO> listaPeliculas;
 
     /**
@@ -38,9 +37,8 @@ public class PeliculaMB extends BaseBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        dtoP = new GeneroDTO();
         listaPeliculas = new ArrayList<>();
-        listaPeliculas = dao.readGen(dtoP);
+        listaPeliculas = dao.readAll();
     }
 
     public String prepareAdd() {
@@ -105,7 +103,7 @@ public class PeliculaMB extends BaseBean implements Serializable {
                 FacesContext.getCurrentInstance().
                         getExternalContext().
                         getRequestParameterMap().get("claveSelG");
-        dtoP = new GeneroDTO();
+        //dtoP = new GeneroDTO();
         //dto.getEntidad().setIdGenero(Integer.parseInt(claveSelG));
         try {
             dao.read(dto);
