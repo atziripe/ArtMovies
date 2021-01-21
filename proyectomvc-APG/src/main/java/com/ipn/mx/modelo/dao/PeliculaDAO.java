@@ -96,18 +96,17 @@ public class PeliculaDAO {
         return lista;
     }
     
-    public List readGen(PeliculaDTO dto) {
+    public List readGen(GeneroDTO dto) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = sesion.getTransaction();
         List lista = new ArrayList();
         try {
             transaction.begin();
-            dto.setEntidad(sesion.get(dto.getEntidad().getClass(), dto.getEntidad().getIdGenero()));
             Query q = sesion.createQuery("from Pelicula peli where idGenero = "+ dto.getEntidad().getIdGenero());
-
             for (Pelicula peli : (List<Pelicula>) q.list()) {
-                dto.setEntidad(peli);
-                lista.add(dto);
+                PeliculaDTO dtoP = new PeliculaDTO();
+                dtoP.setEntidad(peli);
+                lista.add(dtoP);
             }
             transaction.commit();
         } catch (HibernateException he) {
@@ -120,11 +119,11 @@ public class PeliculaDAO {
 
         public static void main(String[] args) {
         PeliculaDAO dao = new PeliculaDAO();
-        PeliculaDTO dto = new PeliculaDTO();
+        GeneroDTO dto = new GeneroDTO();
         
-        //dto.getEntidad().setIdGenero(3);
+        dto.getEntidad().setIdGenero(1);
 
-        dto.getEntidad().setIdPelicula(7);
+//        dto.getEntidad().setIdPelicula(7);
 //        dto.getEntidad().setIdGenero(4);
 //        dto.getEntidad().setNombrePelicula("¿Dónde están las weras?");
 //        dto.getEntidad().setSinopsis("Unas weras");
@@ -137,11 +136,11 @@ public class PeliculaDAO {
 //        dto.getEntidad().setLink("sdgsdgdsgdsfgds");
 
 //        dao.update(dto);
-        dao.delete(dto);
+//        dao.delete(dto);
 //        dao.create(dto);
         
 //System.out.println(dao.readAll());
-//System.out.println(dao.readGen(dto));
+System.out.println(dao.readGen(dto));
     }
 
 }

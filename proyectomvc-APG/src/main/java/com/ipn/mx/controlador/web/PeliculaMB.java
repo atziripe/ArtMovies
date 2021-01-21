@@ -6,6 +6,7 @@
 package com.ipn.mx.controlador.web;
 
 import com.ipn.mx.modelo.dao.PeliculaDAO;
+import com.ipn.mx.modelo.dto.GeneroDTO;
 import com.ipn.mx.modelo.dto.PeliculaDTO;
 import java.awt.event.ActionEvent;
 import java.io.Serializable;
@@ -26,6 +27,7 @@ public class PeliculaMB extends BaseBean implements Serializable {
 
     private final PeliculaDAO dao = new PeliculaDAO();
     private PeliculaDTO dto;
+    private GeneroDTO dtoP;
     private List<PeliculaDTO> listaPeliculas;
 
     /**
@@ -36,8 +38,9 @@ public class PeliculaMB extends BaseBean implements Serializable {
 
     @PostConstruct
     public void init() {
+        dtoP = new GeneroDTO();
         listaPeliculas = new ArrayList<>();
-        listaPeliculas = dao.readAll();
+        listaPeliculas = dao.readGen(dtoP);
     }
 
     public String prepareAdd() {
@@ -95,7 +98,21 @@ public class PeliculaMB extends BaseBean implements Serializable {
         dao.delete(dto);
         return prepareIndex();
     }
+    
 
+    public void seleccionarGenero(ActionEvent event) {
+        String claveSel = (String) 
+                FacesContext.getCurrentInstance().
+                        getExternalContext().
+                        getRequestParameterMap().get("claveSelG");
+        dtoP = new GeneroDTO();
+        dto.getEntidad().setIdGenero(Integer.parseInt(claveSelG));
+        try {
+            dao.read(dto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void seleccionarPelicula(ActionEvent event) {
         String claveSel = (String) 
                 FacesContext.getCurrentInstance().

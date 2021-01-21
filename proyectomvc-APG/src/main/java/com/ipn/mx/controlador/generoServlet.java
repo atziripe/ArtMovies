@@ -193,7 +193,7 @@ public class generoServlet extends HttpServlet {
         dtoP.getEntidad().setIdGenero(Integer.parseInt(request.getParameter("id")));
         try {
             dtoC = daoC.read(dtoC);
-            List listaPeli = daoP.readGen(dtoP);
+            List listaPeli = daoP.readGen(dtoC);
             request.setAttribute("gen", dtoC);
             request.setAttribute("peli", listaPeli);
             rd.forward(request, response);
