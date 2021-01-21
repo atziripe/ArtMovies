@@ -28,7 +28,8 @@ public class Utilerias {
             propiedades.setProperty("mail.smtp.host", "smtp.gmail.com");
             propiedades.setProperty("mail.smtp.starttls.enable", "true");
             propiedades.setProperty("mail.smtp.port", "587");
-            propiedades.setProperty("mail.smtp.user", "weas.wad.2020@gmail.com");
+            //propiedades.setProperty("mail.smtp.user", "weas.wad.2020@gmail.com");
+            propiedades.setProperty("mail.smtp.user", "correowad@gmail.com");
             propiedades.setProperty("mail.smtp.auth", "true");
             
             Session session = Session.getDefaultInstance(propiedades);
@@ -39,7 +40,7 @@ public class Utilerias {
             elMensaje.setText(mensaje);
             
             Transport t = session.getTransport("smtp");
-            t.connect("weas.wad.2020@gmail.com", "weasWAD123");
+            t.connect("correowad@gmail.com", "weaswad1234.");
             
             //myaccount.google.com/lesssecureapp
             
@@ -55,15 +56,15 @@ public class Utilerias {
         
     }
     
-//    public static void main(String[] args) {
-//        Utilerias mandarCorreo = new Utilerias();
-//        
-//        String destinatario = "atziripg.99@gmail.com";
-//        //String destinatario = "skatepro762@gmail.com";
-//        String asunto = "Prueba";
-//        String texto = "Hola esta es una prueba configurado avast";
-//        
-//        mandarCorreo.enviarCorreo(destinatario, asunto, texto);
-//                
-//    }
+    public static void main(String[] args) {
+        Utilerias mandarCorreo = new Utilerias();
+        
+        //String destinatario = "atziripg.99@gmail.com";
+        String destinatario = "skatepro762@gmail.com";
+        String asunto = "Prueba";
+        String texto = "Hola esta es una prueba configurado avast";
+        
+        mandarCorreo.enviarCorreo(destinatario, asunto, texto);
+                
+    }
 }

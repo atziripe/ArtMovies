@@ -24,6 +24,7 @@
                                 <h:form id="frmDatosGenero">
                                     <h:inputHidden id="accion" value="#{GeneroMB.accion}"/>
                                     <h:panelGrid columns="3" class="form-group row">
+                                        
                                         <h:outputLabel 
                                             value="Clave Genero"
                                             rendered="#{GeneroMB.modoActualizar}"/>
@@ -35,6 +36,7 @@
                                             readonly="true"
                                             />
                                         <h:message for="idGenero"/>
+                                        
 
                                         <h:outputLabel 
                                             value="Nombre Genero"
@@ -50,6 +52,7 @@
                                         </h:inputText>
                                         <h:message for="txtNombreGenero"/>
 
+                                        
                                         <h:outputLabel 
                                             value="Drescripción Genero"
                                             />
