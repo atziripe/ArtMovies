@@ -97,20 +97,6 @@ public class PeliculaMB extends BaseBean implements Serializable {
         return prepareIndex();
     }
     
-
-    public void seleccionarGenero(ActionEvent event) {
-        String claveSel = (String) 
-                FacesContext.getCurrentInstance().
-                        getExternalContext().
-                        getRequestParameterMap().get("claveSelG");
-        //dtoP = new GeneroDTO();
-        //dto.getEntidad().setIdGenero(Integer.parseInt(claveSelG));
-        try {
-            dao.read(dto);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public void seleccionarPelicula(ActionEvent event) {
         String claveSel = (String) 
                 FacesContext.getCurrentInstance().

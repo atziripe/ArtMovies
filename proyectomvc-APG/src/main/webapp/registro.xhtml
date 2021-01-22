@@ -31,8 +31,25 @@
                     <div class="signup-content">
                         <div class="signup-form">
                             <h2 class="form-title">Registrate</h2>
-                            <h:form class="register-form" id="register-form">
+                            <!--<h:form class="register-form" id="register-form">-->
+                            <h:form id="frmUsuario">
                                 <h:inputHidden id="accion" value="#{UsuarioMB.accion}"/>
+                                
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="#{UsuarioMB.accion}"
+                                        id="id"  
+                                        required="true"
+                                        requiredMessage="El id es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="id"/>
+                                </div>
+                                
                                 <div class="form-group">
                                     <br></br>
                                     <h:outputLabel>
@@ -55,13 +72,14 @@
                                     </h:outputLabel>
                                     <h:inputText
                                         value="Apellido Paterno"
-                                        id="apPat"  
+                                        id="apPat"
                                         required="true"
                                         requiredMessage="El apellido paterno es obligatorio">
                                         <f:validateRequired/>
                                     </h:inputText>
-                                    <h:message for="apPAt"/>
+                                    <h:message for="apPat"/>
                                 </div>
+
                                 <div class="form-group">
                                     <br></br>
                                     <h:outputLabel>
@@ -76,20 +94,7 @@
                                     </h:inputText>
                                     <h:message for="apMat"/>
                                 </div>
-                                <div class="form-group">
-                                    <br></br>
-                                    <h:outputLabel>
-                                        <i class="far fa-user text-primary"></i>
-                                    </h:outputLabel>
-                                    <h:inputText
-                                        value="Nombre de usuario"
-                                        id="username"  
-                                        required="true"
-                                        requiredMessage="El username es obligatorio">
-                                        <f:validateRequired/>
-                                    </h:inputText>
-                                    <h:message for="username"/>
-                                </div>
+
                                 <div class="form-group">
                                     <br></br>
                                     <h:outputLabel>
@@ -97,13 +102,29 @@
                                     </h:outputLabel>
                                     <h:inputText
                                         value="Email"
-                                        id="email"  
+                                        id="email"
                                         required="true"
                                         requiredMessage="El email es obligatorio">
                                         <f:validateRequired/>
                                     </h:inputText>
                                     <h:message for="email"/>
                                 </div>
+
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="far fa-user text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Nombre de usuario"
+                                        id="username"
+                                        required="true"
+                                        requiredMessage="El username es obligatorio">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="username"/>
+                                </div>
+
                                 <div class="form-group">
                                     <br></br>
                                     <h:outputLabel>
@@ -111,27 +132,29 @@
                                     </h:outputLabel>
                                     <h:inputText
                                         value="Contraseña"
-                                        id="pass"  
+                                        id="pass"
                                         required="true"
                                         requiredMessage="La contraseña es obligatoria">
                                         <f:validateRequired/>
                                     </h:inputText>
                                     <h:message for="pass"/>
                                 </div>
-                                <div class="form-group">
+
+                                <!--<div class="form-group">
                                     <br></br>
                                     <h:outputLabel>
                                         <i class="fas fa-key text-primary"></i>
                                     </h:outputLabel>
                                     <h:inputText
                                         value="Repite contraseña"
-                                        id="pass2"  
+                                        id="pass2"
+                                        class="form-control"
                                         required="true"
                                         requiredMessage="La contraseña es obligatoria">
                                         <f:validateRequired/>
                                     </h:inputText>
                                     <h:message for="pass2"/>
-                                </div> 
+                                </div>-->
 
                                 <div class="form-group">
                                     <br></br>
@@ -147,13 +170,29 @@
 
                                     <h:inputText
                                         value="tipo"
-                                        id="tipo"  
+                                        id="tipo"
                                         required="true"
                                         requiredMessage="El tipo es obligatoria">
                                         <f:validateRequired/>
                                     </h:inputText>
-                                    <h:message for="pass2"/>
+                                    <h:message for="tipo"/>
                                 </div>
+
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-key text-primary"></i>
+                                    </h:outputLabel>
+                                    <h:inputText
+                                        value="Imagen"
+                                        id="imagen"
+                                        required="true"
+                                        requiredMessage="La imagen es obligatoria">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="imagen"/>
+                                </div>
+
                                 <div class="row h-100 align-items-center justify-content-center text-center">
                                     <h:commandButton 
                                         value="Guardar"
