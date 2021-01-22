@@ -45,7 +45,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
     public String prepareAdd() {
         dto = new UsuarioDTO();
         setAccion(ACC_CREAR);
-        return "/updateUser?faces-redirect=true";
+        return "/registro?faces-redirect=true";
     }
 
     public String prepareUpdate() {

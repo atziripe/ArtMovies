@@ -140,19 +140,27 @@
                                         Tipo
                                     </h:outputLabel>
                                     <br></br>
-                                    <h:selectOneMenu id="tipo" value="">
+                                    <!--<h:selectOneMenu id="tipo">
                                         <f:selectItem itemValue="N" itemLabel="Normal"/>
                                         <f:selectItem itemValue="A" itemLabel="Administrador"/>
-                                    </h:selectOneMenu>
+                                    </h:selectOneMenu>-->
+
+                                    <h:inputText
+                                        value="tipo"
+                                        id="tipo"  
+                                        required="true"
+                                        requiredMessage="El tipo es obligatoria">
+                                        <f:validateRequired/>
+                                    </h:inputText>
+                                    <h:message for="pass2"/>
                                 </div>
                                 <div class="row h-100 align-items-center justify-content-center text-center">
                                     <h:commandButton 
-                                        value="Registrar"
+                                        value="Guardar"
                                         action="#{UsuarioMB.add()}"
                                         rendered="#{UsuarioMB.modoCrear}"
-                                        class="btn btn-primary btn-xl js-scroll-trigger"/>
-                                </div>
-<!--Holis-->
+                                        class="btn btn-primary btn-xl"/>
+                                </div>                              
                             </h:form>
                         </div>
                     </div>

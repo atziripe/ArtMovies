@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Editar perfil</title>
+            <!-- Favicon-->
+            <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+            <!-- Font Awesome icons (free version)-->
+            <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+            <!-- Google fonts-->
+            <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+                  rel="stylesheet" type="text/css" />
+            <!-- Third party plugin CSS-->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+                  rel="stylesheet" />
+            <!-- Core theme CSS (includes Bootstrap)-->
+            <link href="css/styles.css" rel="stylesheet" />
+        </meta>
+    </h:head>
+    <h:body>
+        <!-- Barra de navegación-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="inicioAdmin.jsp">Producto por Categoría</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="categoriaServlet?accion=listaDeCategorias">Categorias</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=usuarios">Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="formImagen.jsp">Cargar imagen</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=salir"><i
+                                    class="fas fa-2x fa-sign-out-alt mb-4"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Form-->
+        <section class="page-section bg-dark text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Datos de tu cuenta</h2>
+                <hr class="divider my-4" />
+                <br></br>
+                <h:form id="frmUser">
+                    <h:inputHidden id="accion" value="#{UsuarioMB.accion}"/>
+                    <div class="form-group row">
+                        <h:outputLabel 
+                            value="Nombre"
+                            class="col-sm-2 col-form-label"/>
+                        <div class="col-sm-10">
+                            <h:inputText
+                                id="txtNombre"
+                                value="#{UsuarioMB.dto.entidad.nombre}"
+                                class="form-control"
+                                required="true"
+                                requiredMessage="El nombre es obligatorio"
+                                >
+                                <f:validateRequired/>
+                            </h:inputText>
+                            <h:message for="txtNombre"/>                           
+                        </div>
+                    </div>                  
+                    <div class="row g-3">
+                        <div class="col">
+                            <h:outputLabel 
+                                value="Apellido Paterno"
+                                class="col-sm-2 col-form-label"/>
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtPaterno"
+                                    value="#{UsuarioMB.dto.entidad.paterno}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El apellido paterno es obligatorio">
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtPaterno"/> 
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h:outputLabel 
+                                value="Apellido Materno"
+                                class="col-sm-2 col-form-label"/>
+                            <div class="col-sm-10">
+                                <h:inputText
+                                    id="txtMaterno"
+                                    value="#{UsuarioMB.dto.entidad.materno}"
+                                    class="form-control"
+                                    required="true"
+                                    requiredMessage="El apellido materno es obligatorio">
+                                    <f:validateRequired/>
+                                </h:inputText>
+                                <h:message for="txtMaterno"/> 
+                            </div>
+                        </div>
+                    </div>
+                    <br></br>
+                    <div class="form-group row">
+                        <h:outputLabel 
+                            value="Email"
+                            class="col-sm-2 col-form-label"/>
+                        <div class="col-sm-10">
+                            <h:inputText
+                                id="txtEmail"
+                                value="#{UsuarioMB.dto.entidad.email}"
+                                class="form-control"
+                                required="true"
+                                requiredMessage="El email es obligatorio">
+                                <f:validateRequired/>
+                            </h:inputText>
+                            <h:message for="txtEmail"/>                           
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <h:outputLabel 
+                            value="Username"
+                            class="col-sm-2 col-form-label"/>
+                        <div class="col-sm-10">
+                            <h:inputText
+                                id="txtUsername"
+                                value="#{UsuarioMB.dto.entidad.nombreUsuario}"
+                                class="form-control"
+                                required="true"
+                                requiredMessage="El username es obligatorio">
+                                <f:validateRequired/>
+                            </h:inputText>
+                            <h:message for="txtUsername"/>                           
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <h:outputLabel 
+                            value="Contraseña"
+                            class="col-sm-2 col-form-label"/>
+                        <div class="col-sm-10">
+                            <h:inputText
+                                id="txtPass"
+                                value="#{UsuarioMB.dto.entidad.claveUsuario}"
+                                class="form-control"
+                                required="true"
+                                requiredMessage="La contraseña es obligatorio">
+                                <f:validateRequired/>
+                            </h:inputText>
+                            <h:message for="txtPass"/>                           
+                        </div>
+                    </div> 
+                    <h:inputHidden id="tipo" value="#{UsuarioMB.dto.entidad.tipoUsuario}"/>
+                    <div class="row h-100 align-items-center justify-content-center text-center">
+                        <h:commandButton 
+                            value="Actualizar"
+                            action="#{UsuarioMB.update()}"
+                            rendered="#{UsuarioMB.modoActualizar}"
+                            class="btn btn-success btn-xl js-scroll-trigger"/>
+                        <h:commandButton 
+                            value="Cancelar"
+                            action="#{UsuarioMB.back()}"
+                            class="btn btn-info btn-xl js-scroll-trigger"/>
+                    </div>
+                </h:form>
+            </div>
+        </section>
+
+        <!-- Pie de página-->
+        <footer class="bg-light py-5">
+
+            <div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div>
+
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </h:body>
+</html>
+

@@ -28,7 +28,12 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=nuevo">Registrarse</a></li>
+                        <li class="nav-item">
+                            <h:commandLink 
+                                value="Registrar"
+                                immediate="true"
+                                action="#{UsuarioMB.prepareAdd()}"/>
+                        </li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=iniciar">Ingresar</a></li>
                     </ul>
                 </div>
@@ -164,7 +169,12 @@
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
                 <h2 class="mb-4">Hay muchas más categorías</h2>
-                <a class="btn btn-light btn-xl" href="usuarioServlet?accion=iniciar">Empieza Ya!</a>
+                <h:form id="frmregistro">
+                    <h:commandButton 
+                        value="Registrar"
+                        action="#{UsuarioMB.prepareAdd()}"
+                        class="btn btn-primary btn-xl js-scroll-trigger"/>
+                </h:form>
             </div>
         </section>
         <!-- Contacto-->

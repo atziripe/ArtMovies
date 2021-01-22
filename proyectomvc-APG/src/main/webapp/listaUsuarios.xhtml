@@ -75,7 +75,16 @@
                                 <h:column>
                                     <f:facet name="header">&nbsp;&nbsp;Tipo Usuario&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.tipoUsuario}"/>                                   
-                                </h:column>                                
+                                </h:column>     
+                                <h:column>
+                                    <f:facet name="header">&nbsp;&nbsp;Actualizar&nbsp;&nbsp;</f:facet>
+                                    <h:commandLink action="#{UsuarioMB.prepareUpdate()}"
+                                                   immediate="true"
+                                                   actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
+                                        <f:param name="claveSel" value="#{dto.entidad.idUsuario}"/>
+                                        <i class="fas fa-2x fa-pencil-alt text-success mb-4"></i>
+                                    </h:commandLink>                          
+                                </h:column>
                                 <h:column>
                                     <f:facet name="header">&nbsp;&nbsp;Eliminar</f:facet>
                                     <h:commandLink action="#{UsuarioMB.delete()}"
@@ -84,8 +93,14 @@
                                         <f:param name="claveSel" value="#{dto.entidad.idUsuario}"/>
                                         <i class="fas fa-2x fa-user-times text-primary mb-4"></i>
                                     </h:commandLink>    
-                                </h:column>
+                                </h:column>                              
                             </h:dataTable>
+                            <div class="row h-100 align-items-center justify-content-center text-center">
+                                <h:commandButton 
+                                    value="Guardar"
+                                    action="#{UsuarioMB.prepareAdd()}"
+                                    class="btn btn-primary btn-xl js-scroll-trigger"/>
+                            </div>
                         </h:form>
                     </f:view>
                 </h:panelGrid>    
