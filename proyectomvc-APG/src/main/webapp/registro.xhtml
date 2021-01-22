@@ -127,11 +127,31 @@
                                         value="Repite contraseña"
                                         id="pass2"  
                                         required="true"
-                                        requiredMessage="LA contraseña es obligatoria">
+                                        requiredMessage="La contraseña es obligatoria">
                                         <f:validateRequired/>
                                     </h:inputText>
                                     <h:message for="pass2"/>
                                 </div> 
+
+                                <div class="form-group">
+                                    <br></br>
+                                    <h:outputLabel>
+                                        <i class="fas fa-user-circle text-primary"></i>
+                                        Tipo
+                                    </h:outputLabel>
+                                    <br></br>
+                                    <h:selectOneMenu id="tipo" value="">
+                                        <f:selectItem itemValue="N" itemLabel="Normal"/>
+                                        <f:selectItem itemValue="A" itemLabel="Administrador"/>
+                                    </h:selectOneMenu>
+                                </div>
+                                <div class="row h-100 align-items-center justify-content-center text-center">
+                                    <h:commandButton 
+                                        value="Registrar"
+                                        action="#{UsuarioMB.add()}"
+                                        rendered="#{UsuarioMB.modoCrear}"
+                                        class="btn btn-primary btn-xl js-scroll-trigger"/>
+                                </div>
 
                             </h:form>
                         </div>
