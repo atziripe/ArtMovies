@@ -148,6 +148,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         String user = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         return user;
     }
+    
+    public int idUsu() {
+        int idUser= (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idUser");
+        return idUser;
+    }
 
     public void verificarsesion() {
         try {

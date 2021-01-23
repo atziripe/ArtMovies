@@ -25,6 +25,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.ipn.mx.controlador.web.UsuarioMB;
+import java.util.logging.Level;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
@@ -164,50 +165,57 @@ public Connection conecta() throws SQLException {
         return u != null;
     }
 
-    public String login(String user, String pass) throws SQLException {
+    public int login(String user, String pass) throws SQLException {
         Connection cone = conecta();
         PreparedStatement ps = null;
         try {
             ps = cone.prepareStatement(
-                    "SELECT nombreusuario, claveusuario,email FROM usuario WHERE nombreusuario= ? and claveusuario= ? ");
+                    "SELECT idUsuario, nombreusuario, claveusuario FROM usuario WHERE nombreusuario= ? and claveusuario= ? ");
             ps.setString(1, user);
             ps.setString(2, pass);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) // found
             {
-                System.out.println(rs.getString("email"));
-                String correo = rs.getString("email");
-                return correo;
+                //System.out.println(rs.getString("email"));
+                int id = rs.getInt("idUsuario");
+                return id;
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
                         "LoginDAO!",
                         "Wrong password message test!"));
-                return null;
+                return 0;
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Database Error",
                     "Unable to connect database"));
             System.out.println("Error in login() -->" + ex.getMessage());
-            return null;
+            return 0;
         } finally {
         }
     }
     
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
-        UsuarioDTO dto = new UsuarioDTO();
+        //UsuarioDTO dto = new UsuarioDTO();
 
-        dto.getEntidad().setIdUsuario(1);
+//        dto.getEntidad().setIdUsuario(1);
 
 //        dto.getEntidad().setNombre("batman2");
 //        dto.getEntidad().setPaterno("batman");
 //        dto.getEntidad().setMaterno("batman");
 //        dto.getEntidad().setEmail("batman@baticueva.com");
-        dto.getEntidad().setNombreUsuario("SrR");
-        dto.getEntidad().setClaveUsuario("12345>");
+//        dto.getEntidad().setNombreUsuario("SrR");
+//        dto.getEntidad().setClaveUsuario("12345>");
 //        dto.getEntidad().setTipoUsuario("N");
+        try {
+            //int res = dao.login("SrR", "12345>");
+            int res = dao.login("AtPG", "54321>");
+            System.out.println(res);
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 //        dao.update(dto);
 //        dao.delete(dto);
@@ -216,7 +224,7 @@ public Connection conecta() throws SQLException {
 //ystem.out.println(dao.readAll());
 //System.out.println(dao.read(dto));
 
-System.out.println(dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario())));
+//System.out.println(dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario())));
 //        if (dao.findByUserNameAndPassword(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()) != null){
 //            Utilerias util = new Utilerias();
 //            util.enviarCorreo("asuncionez@gmail.com", "mensaje", "trexto");

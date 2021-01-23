@@ -42,7 +42,16 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=usuarios">Usuarios</a></li>
                         <li class="nav-item">
                             <h:form >
-                                <h:commandLink value="Bienvenido: #{UsuarioMB.nombreusu()}"/>
+                                <h:commandLink 
+                                    action="#{UsuarioMB.prepareUpdate()}"
+                                    value="Bienvenido: #{UsuarioMB.nombreusu()}"
+                                    actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
+                                    <f:param name="claveSel" value="#{UsuarioMB.idUsu()}"/>
+                                </h:commandLink>
+                                &nbsp;&nbsp;
+                                <h:commandLink 
+                                    value="Bienvenido: #{UsuarioMB.idUsu()}">
+                                </h:commandLink>
                                 &nbsp;&nbsp;
                             </h:form>
                         </li>
@@ -53,7 +62,6 @@
                                 </h:commandLink>
                             </h:form>
                         </li>
-
                     </ul>
                 </div>
             </div>
