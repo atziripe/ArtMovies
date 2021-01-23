@@ -23,48 +23,48 @@ import org.primefaces.PrimeFaces;
 @ManagedBean
 @RequestScoped
 public class UserLoginView {
-     
+
     private String username;
-     
+
     private String password;
- 
+
     public String getUsername() {
         return username;
     }
- 
+
     public void setUsername(String username) {
         this.username = username;
     }
- 
-    public String getPassword() { 
+
+    public String getPassword() {
         return password;
     }
- 
+
     public void setPassword(String password) {
         this.password = password;
     }
-   
+
     public String login() throws SQLException {
         FacesMessage message = null;
         boolean loggedIn = false;
-         UsuarioDAO dao = new UsuarioDAO();
-         String consulta = dao.login(username, password);
-        if(consulta != null ) {
+        UsuarioDAO dao = new UsuarioDAO();
+        int consulta = dao.login(username, password);
+        if (consulta != 0) {
             loggedIn = true;
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sesion Iniciada", "Iniciaste sesion como"+username));
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario",username);
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("correo",consulta);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sesion Iniciada", "Iniciaste sesion como" + username));
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", username);
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("idUser", consulta);
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setRedirect(true);
             return "/listaGeneros?faces-redirect=true";
         } else {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Datos incorrectos");
-            
+
         }
-         
+
         FacesContext.getCurrentInstance().addMessage(null, message);
         PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
         return "/login?faces-redirect=true";
-    }   
+    }
 }
