@@ -40,15 +40,20 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=nuevo">Nueva categoría</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="peliculaServlet?accion=nuevo">Nuevo Pelicula</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=usuarios">Usuarios</a></li>
-
-
-
                         <li class="nav-item">
-                            <f:facet name="options">
-                                <p:commandButton actionListener="#{UsuarioMB.cerrarsesion()}" value="Cerrar sesion" action="/inicio?face-redirect=true" />
-                                <i class="fas fa-2x fa-sign-out-alt mb-4"/>
-                            </f:facet>
+                            <h:form >
+                                <h:commandLink value="Bienvenido: #{UsuarioMB.nombreusu()}"/>
+                                &nbsp;&nbsp;
+                            </h:form>
                         </li>
+                        <li class="nav-item">
+                            <h:form >
+                                <h:commandLink actionListener="#{UsuarioMB.cerrarsesion()}" action="/index?face-redirect=true">
+                                    <i class="fas fa-2x fa-sign-out-alt mb-4"></i>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+
                     </ul>
                 </div>
             </div>
