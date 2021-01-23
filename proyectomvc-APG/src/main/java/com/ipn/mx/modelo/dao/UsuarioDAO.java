@@ -106,7 +106,7 @@ public class UsuarioDAO {
         return lista;
     }
 
-    public Usuario findByUserNameAndPassword(String usuario, String clave) {
+    public Usuario verify(String usuario, String clave) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = session.getTransaction();
         Usuario u = null;
@@ -130,6 +130,10 @@ public class UsuarioDAO {
         }
         return u;
     }
+    
+    public boolean isVerify(Usuario u){
+        return u != null;
+    }
 
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
@@ -141,8 +145,8 @@ public class UsuarioDAO {
 //        dto.getEntidad().setPaterno("batman");
 //        dto.getEntidad().setMaterno("batman");
 //        dto.getEntidad().setEmail("batman@baticueva.com");
-//        dto.getEntidad().setNombreUsuario("Murciélago");
-//        dto.getEntidad().setClaveUsuario("123");
+        dto.getEntidad().setNombreUsuario("SrR");
+        dto.getEntidad().setClaveUsuario("12345>");
 //        dto.getEntidad().setTipoUsuario("N");
 
 //        dao.update(dto);
@@ -152,7 +156,7 @@ public class UsuarioDAO {
 //System.out.println(dao.readAll());
 //System.out.println(dao.read(dto));
 
-System.out.println(dao.findByUserNameAndPassword(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()));
+System.out.println(dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario())));
 //        if (dao.findByUserNameAndPassword(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()) != null){
 //            Utilerias util = new Utilerias();
 //            util.enviarCorreo("asuncionez@gmail.com", "mensaje", "trexto");

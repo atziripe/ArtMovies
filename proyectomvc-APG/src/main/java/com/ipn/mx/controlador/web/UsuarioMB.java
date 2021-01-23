@@ -63,6 +63,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         init();
         return "/index?faces-redirect=true";
     }
+    
+    public String prepareIndexA() {
+        init();
+        return "/inicioAdmin?faces-redirect=true";
+    }
 
     public String back() {
         return prepareIndex();
@@ -83,7 +88,14 @@ public class UsuarioMB extends BaseBean implements Serializable {
             return prepareAdd();
         }
     }
-
+    public String verify() {
+        //boolean valido = validate();
+        if (dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()))) {
+            return prepareIndexA();
+        } else {
+            return prepareIndex();
+        }
+    }
 
     public String update() {
         boolean valido = validate();
