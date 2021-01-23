@@ -9,14 +9,23 @@ import com.ipn.mx.modelo.dto.UsuarioDTO;
 import com.ipn.mx.modelo.entidades.Usuario;
 import com.ipn.mx.utilerias.HibernateUtil;
 import com.ipn.mx.utilerias.Utilerias;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.sql.DataSource;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
+import com.ipn.mx.controlador.web.UsuarioMB;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
  *
@@ -24,6 +33,26 @@ import org.hibernate.query.Query;
  */
 public class UsuarioDAO {
 
+    private Connection con;
+    BasicDataSource basicDataSource = new BasicDataSource();
+    
+public Connection conecta() throws SQLException {
+        basicDataSource.setDriverClassName("org.postgresql.Driver");
+        basicDataSource.setUsername("postgres");
+        basicDataSource.setPassword("1234fyy>");
+        basicDataSource.setUrl("jdbc:postgresql://localhost:5432/proyectoWAD");
+        basicDataSource.setValidationQuery("select 1");
+        con = null;
+        try {
+            DataSource dataSource = basicDataSource;
+            con = dataSource.getConnection();
+            System.out.println("Conexion establecida");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
+    
     public void create(UsuarioDTO dto) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = sesion.getTransaction();
@@ -135,6 +164,37 @@ public class UsuarioDAO {
         return u != null;
     }
 
+    public String login(String user, String pass) throws SQLException {
+        Connection cone = conecta();
+        PreparedStatement ps = null;
+        try {
+            ps = cone.prepareStatement(
+                    "SELECT nombreusuario, claveusuario,email FROM usuario WHERE nombreusuario= ? and claveusuario= ? ");
+            ps.setString(1, user);
+            ps.setString(2, pass);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) // found
+            {
+                System.out.println(rs.getString("email"));
+                String correo = rs.getString("email");
+                return correo;
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+                        "LoginDAO!",
+                        "Wrong password message test!"));
+                return null;
+            }
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Database Error",
+                    "Unable to connect database"));
+            System.out.println("Error in login() -->" + ex.getMessage());
+            return null;
+        } finally {
+        }
+    }
+    
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
         UsuarioDTO dto = new UsuarioDTO();

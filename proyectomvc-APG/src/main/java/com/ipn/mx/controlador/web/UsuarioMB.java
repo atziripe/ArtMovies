@@ -29,6 +29,8 @@ public class UsuarioMB extends BaseBean implements Serializable {
     private final UsuarioDAO dao = new UsuarioDAO();
     private UsuarioDTO dto;
     private List<UsuarioDTO> listaUsuarios;
+    private String username;
+    private String password;
 
     /**
      * Creates a new instance of UsuarioMB
@@ -47,7 +49,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
         setAccion(ACC_CREAR);
         return "/registro?faces-redirect=true";
     }
-    
+
     public String prepareVerify() {
         dto = new UsuarioDTO();
         setAccion(ACC_VERIFICAR);
@@ -63,7 +65,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
         init();
         return "/index?faces-redirect=true";
     }
-    
+
     public String prepareIndexA() {
         init();
         return "/inicioAdmin?faces-redirect=true";
@@ -88,6 +90,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
             return prepareAdd();
         }
     }
+
     public String verify() {
         //boolean valido = validate();
         if (dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()))) {
@@ -113,10 +116,9 @@ public class UsuarioMB extends BaseBean implements Serializable {
     }
 
     public void seleccionarUsuario(ActionEvent event) {
-        String claveSel = (String) 
-                FacesContext.getCurrentInstance().
-                        getExternalContext().
-                        getRequestParameterMap().get("claveSel");
+        String claveSel = (String) FacesContext.getCurrentInstance().
+                getExternalContext().
+                getRequestParameterMap().get("claveSel");
         dto = new UsuarioDTO();
         dto.getEntidad().setIdUsuario(Integer.parseInt(claveSel));
         try {
@@ -141,4 +143,25 @@ public class UsuarioMB extends BaseBean implements Serializable {
     public void setListaUsuarios(List<UsuarioDTO> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     }
+
+    public String nombreusu() {
+        String user = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        return user;
+    }
+
+    public void verificarsesion() {
+        try {
+            String user = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+            if (user == null) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cerrarsesion() {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+    }
+
 }
