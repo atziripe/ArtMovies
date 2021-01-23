@@ -153,7 +153,7 @@ public class UsuarioDAO {
 //        dao.delete(dto);
 //        dao.create(dto);
         
-//System.out.println(dao.readAll());
+//ystem.out.println(dao.readAll());
 //System.out.println(dao.read(dto));
 
 System.out.println(dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario())));
