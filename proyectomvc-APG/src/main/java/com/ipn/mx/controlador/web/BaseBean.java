@@ -12,6 +12,7 @@ public class BaseBean implements Serializable {
     protected static final String ACC_CREAR = "CREAR";
     protected static final String ACC_ACTUALIZAR = "ACTUALIZAR";
     protected static final String ACC_LEER = "LEER";
+    protected static final String ACC_VERIFICAR = "VERIFICAR";
     protected String accion;
     
     public boolean isModoCrear(){
@@ -25,6 +26,14 @@ public class BaseBean implements Serializable {
     public boolean isModoActualizar(){
         if(accion != null){
             return accion.equals(ACC_ACTUALIZAR);
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean isModoVerificar(){
+        if(accion != null){
+            return accion.equals(ACC_VERIFICAR);
         }else{
             return false;
         }

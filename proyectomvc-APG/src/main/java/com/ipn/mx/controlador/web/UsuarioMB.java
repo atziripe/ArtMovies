@@ -47,6 +47,12 @@ public class UsuarioMB extends BaseBean implements Serializable {
         setAccion(ACC_CREAR);
         return "/registro?faces-redirect=true";
     }
+    
+    public String prepareVerify() {
+        dto = new UsuarioDTO();
+        setAccion(ACC_VERIFICAR);
+        return "/login?faces-redirect=true";
+    }
 
     public String prepareUpdate() {
         setAccion(ACC_ACTUALIZAR);
@@ -55,7 +61,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
 
     public String prepareIndex() {
         init();
-        return "/listaUsuarios?faces-redirect=true";
+        return "/index?faces-redirect=true";
     }
 
     public String back() {
@@ -77,6 +83,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
             return prepareAdd();
         }
     }
+
 
     public String update() {
         boolean valido = validate();

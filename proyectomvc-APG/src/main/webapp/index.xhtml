@@ -29,12 +29,21 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item">
-                            <h:commandLink 
-                                value="Registrar"
-                                immediate="true"
-                                action="#{UsuarioMB.prepareAdd()}"/>
+                            <h:form>
+                                <h:commandLink 
+                                    value="Registrar"
+                                    immediate="true"
+                                    action="#{UsuarioMB.prepareAdd()}"/>
+                            </h:form>
                         </li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=iniciar">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger">
+                            <h:form>
+                                <h:commandLink 
+                                    value="Ingresar"
+                                    immediate="true"
+                                    action="#{UsuarioMB.prepareAdd()}"/>
+                            </h:form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -109,56 +118,56 @@
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/Romance.png">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Romance.png" alt="" />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Videojuegos</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Romance</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.png">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.png" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/Comedia.png">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Comedia.png" alt="" />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Computación</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Comedia</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/Western.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Western.jpg" alt="" />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Categoria</div>
-                                <div class="project-name">Electrónica</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Western</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/CienciaF.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/CienciaF.jpg" alt="" />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Categoria</div>
-                                <div class="project-name">Luces</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Ciencia Ficcion</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/Documental.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Documental.jpg" alt="" />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Categoria</div>
-                                <div class="project-name">Música</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Documental</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/Thriller.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Thriller.jpg" alt="" />
                             <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Categoria</div>
-                                <div class="project-name">Libros Electrónicos</div>
+                                <div class="project-category text-white-50">Gender</div>
+                                <div class="project-name">Thriller</div>
                             </div>
                         </a>
                     </div>
@@ -168,7 +177,7 @@
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
             <div class="container text-center">
-                <h2 class="mb-4">Hay muchas más categorías</h2>
+                <h2 class="mb-4">Hay muchas más películas</h2>
                 <h:form id="frmregistro">
                     <h:commandButton 
                         value="Registrar"
