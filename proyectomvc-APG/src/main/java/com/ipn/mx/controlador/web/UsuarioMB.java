@@ -86,11 +86,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         boolean valido = validate();
         if (valido) {
             dao.create(dto);
-//            Utilerias mandarCorreo = new Utilerias();
-//            String destinatario = dto.getEntidad().getEmail();
-//            String asunto = "HOLA! GRACIAS POR REGISTRARTE";
-//            String texto = "Bienvenido, no te registra pero gracias por registrarte :)";
-//            mandarCorreo.enviarCorreo(destinatario, asunto, texto);
+            Utilerias mandarCorreo = new Utilerias();
+            String destinatario = dto.getEntidad().getEmail();
+            String asunto = "HOLA! GRACIAS POR REGISTRARTE";
+            String texto = "Bienvenido, no te registra pero gracias por registrarte :)";
+            mandarCorreo.enviarCorreo(destinatario, asunto, texto);
             return prepareIndex();
         } else {
             return prepareAdd();

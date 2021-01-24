@@ -48,6 +48,7 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtNombre"
+                                value="#{UsuarioMB.dto.entidad.nombre}"
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El nombre es obligatorio">
@@ -64,6 +65,7 @@
                             <div class="col-sm-10">
                                 <h:inputText
                                     id="txtPaterno"
+                                    value="#{UsuarioMB.dto.entidad.paterno}"
                                     class="form-control"
                                     required="true"
                                     requiredMessage="El apellido paterno es obligatorio">
@@ -79,6 +81,7 @@
                             <div class="col-sm-10">
                                 <h:inputText
                                     id="txtMaterno"
+                                    value="#{UsuarioMB.dto.entidad.materno}"
                                     class="form-control"
                                     required="true"
                                     requiredMessage="El apellido materno es obligatorio">
@@ -96,6 +99,7 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtEmail"
+                                value="#{UsuarioMB.dto.entidad.email}"
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El email es obligatorio">
@@ -111,6 +115,7 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtUsername"
+                                value="#{UsuarioMB.dto.entidad.nombreUsuario}"
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El username es obligatorio">
@@ -126,6 +131,7 @@
                         <div class="col-sm-10">
                             <h:inputSecret
                                 id="txtPass"
+                                value="#{UsuarioMB.dto.entidad.claveUsuario}"
                                 class="form-control"
                                 required="true"
                                 requiredMessage="La contraseña es obligatorio">
@@ -142,6 +148,7 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="tipo"
+                                value="#{UsuarioMB.dto.entidad.tipoUsuario}"
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El tipo es obligatorio">
