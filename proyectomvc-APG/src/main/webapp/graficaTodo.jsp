@@ -31,21 +31,10 @@
         <!-- Barra de navegación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="inicioAdmin.jsp">Pelicula por Género</a>
+                <a class="navbar-brand js-scroll-trigger" href="#">Art Movies</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=listaDeGeneros">Generos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=nuevo">Nueva categoría</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=usuarios">Usuarios</a></li>
-                        <%--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=actualizar&id=${sessionScope.user.entidad.idUsuario}"><i
-                                    class="fas fa-2x fa-user-edit mb-4"></i>${sessionScope.user.entidad.nombreUsuario}</a></li>--%>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=salir"><i
-                                    class="fas fa-2x fa-sign-out-alt mb-4"></i></a></li>
-                    </ul>
-                </div>
+                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>     
             </div>
         </nav>
         <!-- Grafica peliculas por genero-->

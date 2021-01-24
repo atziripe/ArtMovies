@@ -104,7 +104,8 @@ public class UsuarioMB extends BaseBean implements Serializable {
         boolean valido = validate();
         if (valido) {
             dao.update(dto);
-            return prepareIndex();
+            
+            return prepareIndexA();
         } else {
             return prepareUpdate();
         }

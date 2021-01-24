@@ -25,7 +25,7 @@
         <!-- Barra de navegación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="inicioAdmin.jsp">Art Movies</a>
+                <a class="navbar-brand js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/index.xhtml">Art Movies</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>          
@@ -48,7 +48,6 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtNombre"
-                                value=" "
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El nombre es obligatorio">
@@ -65,7 +64,6 @@
                             <div class="col-sm-10">
                                 <h:inputText
                                     id="txtPaterno"
-                                    value=" "
                                     class="form-control"
                                     required="true"
                                     requiredMessage="El apellido paterno es obligatorio">
@@ -81,7 +79,6 @@
                             <div class="col-sm-10">
                                 <h:inputText
                                     id="txtMaterno"
-                                    value=" "
                                     class="form-control"
                                     required="true"
                                     requiredMessage="El apellido materno es obligatorio">
@@ -99,7 +96,6 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtEmail"
-                                value=" "
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El email es obligatorio">
@@ -115,7 +111,6 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="txtUsername"
-                                value=" "
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El username es obligatorio">
@@ -131,7 +126,6 @@
                         <div class="col-sm-10">
                             <h:inputSecret
                                 id="txtPass"
-                                value=" "
                                 class="form-control"
                                 required="true"
                                 requiredMessage="La contraseña es obligatorio">
@@ -148,7 +142,6 @@
                         <div class="col-sm-10">
                             <h:inputText
                                 id="tipo"
-                                value=" "
                                 class="form-control"
                                 required="true"
                                 requiredMessage="El tipo es obligatorio">
