@@ -40,7 +40,7 @@ public class UsuarioDAO {
 public Connection conecta() throws SQLException {
         basicDataSource.setDriverClassName("org.postgresql.Driver");
         basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("1234fyy>");
+        basicDataSource.setPassword("password");
         basicDataSource.setUrl("jdbc:postgresql://localhost:5432/proyectoWAD");
         basicDataSource.setValidationQuery("select 1");
         con = null;
@@ -198,28 +198,28 @@ public Connection conecta() throws SQLException {
     
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
-        //UsuarioDTO dto = new UsuarioDTO();
+        UsuarioDTO dto = new UsuarioDTO();
 
-//        dto.getEntidad().setIdUsuario(1);
+ //       dto.getEntidad().setIdUsuario(1);
 
-//        dto.getEntidad().setNombre("batman2");
-//        dto.getEntidad().setPaterno("batman");
-//        dto.getEntidad().setMaterno("batman");
-//        dto.getEntidad().setEmail("batman@baticueva.com");
-//        dto.getEntidad().setNombreUsuario("SrR");
-//        dto.getEntidad().setClaveUsuario("12345>");
-//        dto.getEntidad().setTipoUsuario("N");
-        try {
-            //int res = dao.login("SrR", "12345>");
-            int res = dao.login("AtPG", "54321>");
-            System.out.println(res);
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        dto.getEntidad().setNombre("batman3");
+        dto.getEntidad().setPaterno("batman");
+        dto.getEntidad().setMaterno("batman");
+        dto.getEntidad().setEmail("batman@baticueva.com");
+        dto.getEntidad().setNombreUsuario("SrR");
+        dto.getEntidad().setClaveUsuario("12345>");
+        dto.getEntidad().setTipoUsuario("N");
+//        try {
+//            //int res = dao.login("SrR", "12345>");
+//            int res = dao.login("AtPG", "54321>");
+//            System.out.println(res);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
 //        dao.update(dto);
 //        dao.delete(dto);
-//        dao.create(dto);
+        dao.create(dto);
         
 //ystem.out.println(dao.readAll());
 //System.out.println(dao.read(dto));

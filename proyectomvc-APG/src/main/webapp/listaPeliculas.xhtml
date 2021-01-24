@@ -25,20 +25,49 @@
         <!-- Barra de navegación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="inicioAdmin.jsp">Pelicula por Genero</a>
+                <a class="navbar-brand js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/inicioAN.xhtml">Pelicula por Genero</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=grafica">Grafica Genero</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="utileriasServlet?accion=grafica">Grafica Genero</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=reporte">Reporte PDF</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=nuevo">Nueva categoría</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="peliculaServlet?accion=nuevo">Nuevo Pelicula</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=usuarios">Usuarios</a></li>
-
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarioServlet?accion=salir"><i
-                                    class="fas fa-2x fa-sign-out-alt mb-4"></i></a></li>
+                        <li class="nav-item">
+                            <h:form>
+                                <h:commandLink 
+                                    value="Nueva película"
+                                    action="#{PeliculaMB.prepareAdd()}"
+                                    class="nav-link js-scroll-trigger"/>
+                            </h:form>
+                        </li>
+                        <li class="nav-item">
+                            <h:form>
+                                <h:commandLink 
+                                    value="Nuevo genero"
+                                    action="#{GeneroMB.prepareAdd()}"
+                                    class="nav-link js-scroll-trigger"/>
+                            </h:form>
+                        </li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/listaUsuarios.xhtml">Usuarios</a></li>
+                        <li class="nav-item">
+                            <h:form>
+                                <h:commandLink 
+                                    action="#{UsuarioMB.prepareUpdate()}"
+                                    value="Bienvenido: #{UsuarioMB.nombreusu()}"
+                                    actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
+                                    <f:param name="claveSel" value="#{UsuarioMB.idUsu()}"/>
+                                </h:commandLink>
+                                &nbsp;&nbsp;
+                            </h:form>
+                        </li>
+                        <li class="nav-item">
+                            <h:form >
+                                <h:commandLink actionListener="#{UsuarioMB.cerrarsesion()}" action="/index?face-redirect=true">
+                                    <i class="fas fa-2x fa-sign-out-alt mb-4"></i>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
                     </ul>
                 </div>
             </div>
