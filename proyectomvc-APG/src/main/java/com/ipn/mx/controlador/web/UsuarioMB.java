@@ -9,6 +9,7 @@ import static com.ipn.mx.controlador.web.BaseBean.ACC_ACTUALIZAR;
 import static com.ipn.mx.controlador.web.BaseBean.ACC_CREAR;
 import com.ipn.mx.modelo.dao.UsuarioDAO;
 import com.ipn.mx.modelo.dto.UsuarioDTO;
+import com.ipn.mx.utilerias.Utilerias;
 import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -63,12 +64,12 @@ public class UsuarioMB extends BaseBean implements Serializable {
 
     public String prepareIndex() {
         init();
-        return "/index?faces-redirect=true";
+        return "/login?faces-redirect=true";
     }
 
     public String prepareIndexA() {
         init();
-        return "/inicioAdmin?faces-redirect=true";
+        return "/inicioAN?faces-redirect=true";
     }
 
     public String back() {
@@ -85,6 +86,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         boolean valido = validate();
         if (valido) {
             dao.create(dto);
+//            Utilerias mandarCorreo = new Utilerias();
+//            String destinatario = dto.getEntidad().getEmail();
+//            String asunto = "HOLA! GRACIAS POR REGISTRARTE";
+//            String texto = "Bienvenido, no te registra pero gracias por registrarte :)";
+//            mandarCorreo.enviarCorreo(destinatario, asunto, texto);
             return prepareIndex();
         } else {
             return prepareAdd();
@@ -104,7 +110,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         boolean valido = validate();
         if (valido) {
             dao.update(dto);
-            
+            Utilerias mandarCorreo = new Utilerias();
+            String destinatario = dto.getEntidad().getEmail();
+            String asunto = "¿ACTUALIZASTE TUS DATOS?";
+            String texto = "Tenemos registro de una actualización de tus datos en el sistema ¿Fuiste tú?";
+            mandarCorreo.enviarCorreo(destinatario, asunto, texto);
             return prepareIndexA();
         } else {
             return prepareUpdate();
@@ -149,9 +159,9 @@ public class UsuarioMB extends BaseBean implements Serializable {
         String user = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
         return user;
     }
-    
+
     public int idUsu() {
-        int idUser= (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idUser");
+        int idUser = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("idUser");
         return idUser;
     }
 
