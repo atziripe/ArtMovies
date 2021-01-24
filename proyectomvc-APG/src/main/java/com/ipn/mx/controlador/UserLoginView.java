@@ -56,7 +56,7 @@ public class UserLoginView {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("idUser", consulta);
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setRedirect(true);
-            return "/listaGeneros?faces-redirect=true";
+            return "/inicioAN?faces-redirect=true";
         } else {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Datos incorrectos");
