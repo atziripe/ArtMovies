@@ -279,7 +279,7 @@ public class usuarioServlet extends HttpServlet {
 //        byte[] bytes = JasperRunManager.runReportToPdf(reporte.getPath(), null, dao.obtenerConexion());
 //        response.setContentType("application/pdf");
 //        response.setContentLength(bytes.length);
-//        try {
+//        try {obtenerConexion());
 //            sos.write(bytes, 0, bytes.length);
 //        } catch (IOException ex) {
 //            Logger.getLogger(usuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
