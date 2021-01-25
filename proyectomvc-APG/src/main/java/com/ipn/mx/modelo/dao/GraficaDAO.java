@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 
 /**
  *
- * @author Atziri Perez
+ * @author El TEAM AFR
  */
 public class GraficaDAO {
 

@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * 
- * @author Team Shido
+ * @author El TEAM AFR
  */
 public class Utilerias {
     public void enviarCorreo(String destinatario, String asunto, String mensaje){

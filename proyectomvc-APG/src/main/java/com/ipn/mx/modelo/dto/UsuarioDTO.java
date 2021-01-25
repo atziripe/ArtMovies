@@ -11,7 +11,7 @@ import lombok.Data;
 
 /**
  *
- * @author Atziri Perez
+ * @author El TEAM AFR
  */
 @Data
 @AllArgsConstructor

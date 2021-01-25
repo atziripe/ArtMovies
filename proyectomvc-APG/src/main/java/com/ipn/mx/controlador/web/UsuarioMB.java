@@ -32,7 +32,7 @@ import org.primefaces.model.file.UploadedFile;
 
 /**
  *
- * @author Atziri Perez
+ * @author El TEAM AFR
  */
 @ManagedBean(name = "UsuarioMB")
 @SessionScoped

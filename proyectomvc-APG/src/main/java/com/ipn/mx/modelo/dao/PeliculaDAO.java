@@ -12,7 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-/**@author Atziri Perez*/
+//@author El TEAM AFR
 public class PeliculaDAO {
     public void create(PeliculaDTO dto) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
