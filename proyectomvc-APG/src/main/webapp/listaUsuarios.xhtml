@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,20 +34,20 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="utileriasServlet?accion=grafica" target="_blank">Graficas</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=reporte">Reporte PDF</a></li>
-                        
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/listaGeneros.xhtml">Generos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/listaPeliculas.xhtml">Peliculas</a></li>
 
                         <li class="nav-item">
                             <h:form>
-                                 <h:commandLink 
+                                <h:commandLink 
                                     action="#{UsuarioMB.prepareUpdate()}"
                                     value="#{UsuarioMB.nombreusu()}"
                                     class="nav-link js-scroll-trigger"
                                     actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
                                     <f:param name="claveSel" value="#{UsuarioMB.idUsu()}"/>
-                                     <i class="fas fa-2x fa-user-edit mb-4"></i>
-                                     &nbsp;&nbsp;
+                                    <i class="fas fa-2x fa-user-edit mb-4"></i>
+                                    &nbsp;&nbsp;
                                 </h:commandLink>
                                 &nbsp;&nbsp;
                             </h:form>
@@ -78,6 +79,13 @@
                                 <h:column>
                                     <f:facet name="header">Username&nbsp;&nbsp;</f:facet>
                                     <h:outputText value="#{dto.entidad.nombreUsuario}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        &nbsp;&nbsp;Imagen&nbsp;&nbsp;
+                                    </f:facet>
+                                    <p:graphicImage width="100" height="100" value="#{UsuarioMB.image}" >
+                                        <f:param name="id" value="#{dto.entidad.idUsuario}" /> </p:graphicImage>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">&nbsp;&nbsp;Nombre&nbsp;&nbsp;</f:facet>

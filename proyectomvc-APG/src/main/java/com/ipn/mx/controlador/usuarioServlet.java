@@ -57,7 +57,7 @@ public class usuarioServlet extends HttpServlet {
                         actualizarUsuario(request, response);
                     } else {
                         if (accion.equals("guardar")) {
-                            almacenarUsuario(request, response);
+                            //almacenarUsuario(request, response);
                         } else {
                             if (accion.equals("iniciar")) {
                                 iniciarUsuario(request, response);
@@ -171,55 +171,55 @@ public class usuarioServlet extends HttpServlet {
         }
     }
 
-    private void almacenarUsuario(HttpServletRequest request, HttpServletResponse response) {
-        UsuarioDAO dao = new UsuarioDAO();
-        UsuarioDTO dto = new UsuarioDTO();
-        Utilerias mandarCorreo = new Utilerias();
-
-        String destinatario = request.getParameter("email");
-        String asunto = "";
-        String texto = "";
-
-        if (request.getParameter("id") == null || request.getParameter("id").isEmpty()) {
-            dto.getEntidad().setNombre(request.getParameter("name"));
-            dto.getEntidad().setPaterno(request.getParameter("paterno"));
-            dto.getEntidad().setMaterno(request.getParameter("materno"));
-            dto.getEntidad().setEmail(request.getParameter("email"));
-            dto.getEntidad().setNombreUsuario(request.getParameter("username"));
-            dto.getEntidad().setClaveUsuario(request.getParameter("pass"));
-            dto.getEntidad().setTipoUsuario(request.getParameter("tipo"));
-            dto.getEntidad().setImagen(request.getParameter("imagen"));
-            try {
-                dao.create(dto);
-                asunto = "¡GRACIAS POR REGISTRARTE!";
-                texto = "Hola " + request.getParameter("name") + ", gracias por registrarte en mi práctica de WAD. Checala, esta chida.\n Username: " + request.getParameter("username") + "";
-                RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
-                vista.forward(request, response);
-            } catch (ServletException | IOException ex) {
-                Logger.getLogger(usuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            dto.getEntidad().setIdUsuario(Integer.parseInt(request.getParameter("id")));
-            dto.getEntidad().setNombre(request.getParameter("name"));
-            dto.getEntidad().setPaterno(request.getParameter("paterno"));
-            dto.getEntidad().setMaterno(request.getParameter("materno"));
-            dto.getEntidad().setEmail(request.getParameter("email"));
-            dto.getEntidad().setNombreUsuario(request.getParameter("username"));
-            dto.getEntidad().setClaveUsuario(request.getParameter("pass"));
-            dto.getEntidad().setTipoUsuario(request.getParameter("tipo"));
-            dto.getEntidad().setImagen(request.getParameter("imagen"));
-            try {
-                dao.update(dto);
-                asunto = "¿Acabas de modificar tus datos?";
-                texto = "Hola, los datos de cuenta en la practica de WAD acaban de ser actualizados. ¿Fuiste tú?";
-                RequestDispatcher vista = request.getRequestDispatcher("inicioAdmin.jsp");
-                vista.forward(request, response);
-            } catch (ServletException | IOException ex) {
-                Logger.getLogger(usuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        mandarCorreo.enviarCorreo(destinatario, asunto, texto);
-    }
+//    private void almacenarUsuario(HttpServletRequest request, HttpServletResponse response) {
+//        UsuarioDAO dao = new UsuarioDAO();
+//        UsuarioDTO dto = new UsuarioDTO();
+//        Utilerias mandarCorreo = new Utilerias();
+//
+//        String destinatario = request.getParameter("email");
+//        String asunto = "";
+//        String texto = "";
+//
+//        if (request.getParameter("id") == null || request.getParameter("id").isEmpty()) {
+//            dto.getEntidad().setNombre(request.getParameter("name"));
+//            dto.getEntidad().setPaterno(request.getParameter("paterno"));
+//            dto.getEntidad().setMaterno(request.getParameter("materno"));
+//            dto.getEntidad().setEmail(request.getParameter("email"));
+//            dto.getEntidad().setNombreUsuario(request.getParameter("username"));
+//            dto.getEntidad().setClaveUsuario(request.getParameter("pass"));
+//            dto.getEntidad().setTipoUsuario(request.getParameter("tipo"));
+//            dto.getEntidad().setImagen(request.getParameter("imagen"));
+//            try {
+//                dao.create(dto);
+//                asunto = "¡GRACIAS POR REGISTRARTE!";
+//                texto = "Hola " + request.getParameter("name") + ", gracias por registrarte en mi práctica de WAD. Checala, esta chida.\n Username: " + request.getParameter("username") + "";
+//                RequestDispatcher vista = request.getRequestDispatcher("index.jsp");
+//                vista.forward(request, response);
+//            } catch (ServletException | IOException ex) {
+//                Logger.getLogger(usuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            dto.getEntidad().setIdUsuario(Integer.parseInt(request.getParameter("id")));
+//            dto.getEntidad().setNombre(request.getParameter("name"));
+//            dto.getEntidad().setPaterno(request.getParameter("paterno"));
+//            dto.getEntidad().setMaterno(request.getParameter("materno"));
+//            dto.getEntidad().setEmail(request.getParameter("email"));
+//            dto.getEntidad().setNombreUsuario(request.getParameter("username"));
+//            dto.getEntidad().setClaveUsuario(request.getParameter("pass"));
+//            dto.getEntidad().setTipoUsuario(request.getParameter("tipo"));
+//            dto.getEntidad().setImagen(request.getParameter("imagen"));
+//            try {
+//                dao.update(dto);
+//                asunto = "¿Acabas de modificar tus datos?";
+//                texto = "Hola, los datos de cuenta en la practica de WAD acaban de ser actualizados. ¿Fuiste tú?";
+//                RequestDispatcher vista = request.getRequestDispatcher("inicioAdmin.jsp");
+//                vista.forward(request, response);
+//            } catch (ServletException | IOException ex) {
+//                Logger.getLogger(usuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        mandarCorreo.enviarCorreo(destinatario, asunto, texto);
+//    }
 
     private void iniciarUsuario(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher rd = request.getRequestDispatcher("login.jsp");

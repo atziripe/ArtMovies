@@ -66,7 +66,6 @@ public class GeneroMB extends BaseBean implements Serializable {
 
     public boolean validate() {
         boolean valido = true;
-        //las validaciones
         return valido;
     }
 

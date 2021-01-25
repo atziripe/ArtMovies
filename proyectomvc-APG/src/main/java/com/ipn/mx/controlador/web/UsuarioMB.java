@@ -11,6 +11,10 @@ import com.ipn.mx.modelo.dao.UsuarioDAO;
 import com.ipn.mx.modelo.dto.UsuarioDTO;
 import com.ipn.mx.utilerias.Utilerias;
 import java.awt.event.ActionEvent;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+import org.primefaces.model.file.UploadedFile;
 
 /**
  *
@@ -25,19 +36,19 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "UsuarioMB")
 @SessionScoped
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioMB extends BaseBean implements Serializable {
 
     private final UsuarioDAO dao = new UsuarioDAO();
     private UsuarioDTO dto;
     private List<UsuarioDTO> listaUsuarios;
-    private String username;
-    private String password;
+    private UploadedFile file;
 
     /**
      * Creates a new instance of UsuarioMB
      */
-    public UsuarioMB() {
-    }
 
     @PostConstruct
     public void init() {
@@ -61,6 +72,11 @@ public class UsuarioMB extends BaseBean implements Serializable {
         setAccion(ACC_ACTUALIZAR);
         return "/updateUser?faces-redirect=true";
     }
+    
+    public String prepareListaU(){
+        init();
+        return "/listaUsuarios?faces-redirect=true";
+    }
 
     public String prepareIndex() {
         init();
@@ -78,37 +94,55 @@ public class UsuarioMB extends BaseBean implements Serializable {
 
     public boolean validate() {
         boolean valido = true;
-        //las validaciones
         return valido;
     }
 
-    public String add() {
-        boolean valido = validate();
+    public String add() throws IOException {
+        Boolean valido = validate();
         if (valido) {
+            InputStream input = file.getInputStream();
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            byte[] buffer = new byte[64000];
+            for (int i = 0; (i = input.read(buffer)) > 0;) {
+                output.write(buffer, 0, i);
+            }
+            dto.getEntidad().setImagen(output.toByteArray());
             dao.create(dto);
             Utilerias mandarCorreo = new Utilerias();
             String destinatario = dto.getEntidad().getEmail();
             String asunto = "HOLA! GRACIAS POR REGISTRARTE";
-            String texto = "Bienvenido, no te registra pero gracias por registrarte :)";
+            String texto = "Bienvenido a nuestro proyecto final de Web Application Development :)";
             mandarCorreo.enviarCorreo(destinatario, asunto, texto);
-            return prepareIndex();
+            if (valido) {
+                file = null;
+                return prepareIndex();
+            } else {
+                return prepareAdd();
+            }
         } else {
-            return prepareAdd();
         }
+        return prepareAdd();
     }
 
-    public String verify() {
-        //boolean valido = validate();
-        if (dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()))) {
-            return prepareIndexA();
-        } else {
-            return prepareIndex();
-        }
-    }
+//    public String verify() {
+//        //boolean valido = validate();
+//        if (dao.isVerify(dao.verify(dto.getEntidad().getNombreUsuario(), dto.getEntidad().getClaveUsuario()))) {
+//            return prepareIndexA();
+//        } else {
+//            return prepareIndex();
+//        }
+//    }
 
-    public String update() {
+    public String update() throws IOException {
         boolean valido = validate();
         if (valido) {
+            InputStream input = file.getInputStream();
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            byte[] buffer = new byte[64000];
+            for (int i = 0; (i = input.read(buffer)) > 0;) {
+                output.write(buffer, 0, i);
+            }
+            dto.getEntidad().setImagen(output.toByteArray());
             dao.update(dto);
             Utilerias mandarCorreo = new Utilerias();
             String destinatario = dto.getEntidad().getEmail();
@@ -123,7 +157,7 @@ public class UsuarioMB extends BaseBean implements Serializable {
 
     public String delete() {
         dao.delete(dto);
-        return prepareIndex();
+        return prepareListaU();
     }
 
     public void seleccionarUsuario(ActionEvent event) {
@@ -178,6 +212,16 @@ public class UsuarioMB extends BaseBean implements Serializable {
 
     public void cerrarsesion() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+    }
+
+    public StreamedContent getImage() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            return new DefaultStreamedContent();
+        } else {
+            String id = context.getExternalContext().getRequestParameterMap().get("id");
+            return new DefaultStreamedContent(new ByteArrayInputStream(dto.getEntidad().getImagen()), "image/*");
+        }
     }
 
 }

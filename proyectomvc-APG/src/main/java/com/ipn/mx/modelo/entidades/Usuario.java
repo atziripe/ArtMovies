@@ -35,5 +35,5 @@ public class Usuario implements Serializable{
     private String nombreUsuario;
     private String claveUsuario;
     private String tipoUsuario;
-    private String imagen;
+    private byte[] imagen;
 }
