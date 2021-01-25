@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="utileriasServlet?accion=grafica" target="_blank">Graficas</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="generoServlet?accion=reporte">Reporte PDF</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/proyectomvc/utileriasServlet?accion=reporteUs" target="_blank">Reporte PDF Usuarios</a></li>
 
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/listaGeneros.xhtml">Generos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/listaPeliculas.xhtml">Peliculas</a></li>
@@ -117,14 +117,14 @@
                                     </h:commandLink>                          
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">&nbsp;&nbsp;Eliminar</f:facet>
+                                    <f:facet name="header">&nbsp;&nbsp;Eliminar&nbsp;&nbsp;</f:facet>
                                     <h:commandLink action="#{UsuarioMB.delete()}"
                                                    immediate="true"
                                                    actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
                                         <f:param name="claveSel" value="#{dto.entidad.idUsuario}"/>
                                         <i class="fas fa-2x fa-user-times text-primary mb-4"></i>
                                     </h:commandLink>    
-                                </h:column>                              
+                                </h:column>                               
                             </h:dataTable>
                         </h:form>
                     </f:view>
