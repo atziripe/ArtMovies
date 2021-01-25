@@ -40,7 +40,7 @@ public class UsuarioDAO {
 public Connection conecta() throws SQLException {
         basicDataSource.setDriverClassName("org.postgresql.Driver");
         basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("1234fyy>");
+        basicDataSource.setPassword("password");
         basicDataSource.setUrl("jdbc:postgresql://localhost:5432/proyectoWAD");
         basicDataSource.setValidationQuery("select 1");
         con = null;
