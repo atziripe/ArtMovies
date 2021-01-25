@@ -52,6 +52,10 @@ insert into Usuario values(2, 'Atziri', 'Pérez', 'Garcia', 'weas.wad.2020@gmail
 insert into Usuario values(3, 'Roberto', 'Sánchez', 'Veloz', 'weas.wad.2020@gmail.com', 'RSV', '54321>', 'A');
 
 
+alter table Usuario drop column imagen;
+alter table Usuario add column imagen bytea;
+
+
 SELECT idusuario, nombre, paterno, materno, email, nombreusuario, claveusuario, tipousuario
 FROM public.usuario;
 
