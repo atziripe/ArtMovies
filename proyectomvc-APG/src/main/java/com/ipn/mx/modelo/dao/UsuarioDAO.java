@@ -25,6 +25,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.ipn.mx.controlador.web.UsuarioMB;
+import com.ipn.mx.utilerias.Conexion;
 import java.util.logging.Level;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -33,26 +34,6 @@ import org.apache.commons.dbcp2.BasicDataSource;
  * @author El Team
  */
 public class UsuarioDAO {
-
-    private Connection con;
-    BasicDataSource basicDataSource = new BasicDataSource();
-    
-public Connection conecta() throws SQLException {
-        basicDataSource.setDriverClassName("org.postgresql.Driver");
-        basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("password");
-        basicDataSource.setUrl("jdbc:postgresql://localhost:5432/proyectoWAD");
-        basicDataSource.setValidationQuery("select 1");
-        con = null;
-        try {
-            DataSource dataSource = basicDataSource;
-            con = dataSource.getConnection();
-            System.out.println("Conexion establecida");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return con;
-    }
     
     public void create(UsuarioDTO dto) {
         Session sesion = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -166,7 +147,8 @@ public Connection conecta() throws SQLException {
     }
 
     public int login(String user, String pass) throws SQLException {
-        Connection cone = conecta();
+        Conexion conect = new Conexion();
+        Connection cone = conect.conecta();
         PreparedStatement ps = null;
         try {
             ps = cone.prepareStatement(

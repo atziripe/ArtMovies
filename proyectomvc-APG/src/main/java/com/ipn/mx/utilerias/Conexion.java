@@ -19,9 +19,9 @@ public class Conexion {
     BasicDataSource basicDataSource = new BasicDataSource();
     public Connection conecta() throws SQLException {
         basicDataSource.setDriverClassName("org.postgresql.Driver");
-        basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("password");
-        basicDataSource.setUrl("jdbc:postgresql://localhost:5432/proyectoWAD");
+        basicDataSource.setUsername("pftbwhrhrclrkd");
+        basicDataSource.setPassword("238b94901e8de48ba7a717b12da48e377c1286111ab4b995d02455f2a0cede6e");
+        basicDataSource.setUrl("jdbc:postgresql://ec2-54-159-107-189.compute-1.amazonaws.com:5432/d8rldgntsq6b1m?sslmode=require");
         basicDataSource.setValidationQuery("select 1");
         con = null;
         try {
