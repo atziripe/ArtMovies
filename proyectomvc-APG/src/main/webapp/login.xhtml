@@ -33,7 +33,13 @@
                     <div class="signin-content">
                         <div class="signin-image">
                             <figure><img src="assets/img/signin-image.jpg" alt="sing up image"/></figure>
-                            <a href="usuarioServlet?accion=nuevo" class="signup-image-link">Crea una nueva cuenta</a>
+                            <h:form>
+                                <h:commandLink 
+                                    value="Crear una cuenta nueva"
+                                    class="nav-link js-scroll-trigger"
+                                    immediate="true"
+                                    action="#{UsuarioMB.prepareAdd()}"/>
+                            </h:form>
                         </div>
 
                         <div class="signin-form">

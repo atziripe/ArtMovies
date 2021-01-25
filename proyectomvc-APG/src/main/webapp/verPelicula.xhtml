@@ -22,7 +22,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </h:head>
     <h:body>
-       <!-- Barra de navegación-->
+        <!-- Barra de navegación-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#{facesContext.externalContext.request.contextPath}/faces/inicioAN.xhtml">Art Movies</a>
@@ -50,8 +50,8 @@
                                     class="nav-link js-scroll-trigger"
                                     actionListener="#{UsuarioMB.seleccionarUsuario(event)}">
                                     <f:param name="claveSel" value="#{UsuarioMB.idUsu()}"/>
-                                     <i class="fas fa-2x fa-user-edit mb-4"></i>
-                                     &nbsp;&nbsp;
+                                    <i class="fas fa-2x fa-user-edit mb-4"></i>
+                                    &nbsp;&nbsp;
                                 </h:commandLink>
                                 &nbsp;&nbsp;
                             </h:form>
@@ -68,7 +68,7 @@
             </div>
         </nav>
         <!-- Datos del genero-->
-        <section class="page-section bg-primary" id="Category">
+        <section class="page-section bg-dark" id="Category">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -91,9 +91,30 @@
                                 </ul>
                             </div>
                         </div>
+                        <br></br>
+                        <h:form>
+                            <div class="row g-3">
+                                <div class="col">
+                                    <h:commandLink
+                                        action="#{PeliculaMB.voteP()}"
+                                        value ="Me gusta"
+                                        class="nav-link js-scroll-trigger">
+                                        <i class="fas fa-5x fa-heart text-success mb-4"></i>
+                                    </h:commandLink>
+                                </div>  
+                                <div class="col">
+                                    <h:commandLink 
+                                        action="#{PeliculaMB.voteN()}"
+                                        value="No me gusta"
+                                        class="nav-link js-scroll-trigger">
+                                        <i class="fas fa-5x fa-heart-broken text-danger mb-4"></i>
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </h:form>
+                        <br></br>
                         <a class="btn btn-light btn-xl js-scroll-trigger" href="/utileriasServlet?accion=reportePeli" target="_blank">Reporte PDF Peliculas</a>
                         <a class="btn btn-light btn-xl js-scroll-trigger" href="utileriasServlet?accion=grafica" target="_blank">Graficas</a>
-
                     </div>
                 </div>
             </div>

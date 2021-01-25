@@ -96,6 +96,30 @@ public class PeliculaMB extends BaseBean implements Serializable {
         return prepareIndex();
     }
     
+    public String voteP() {
+        boolean valido = validate();
+        if (valido) {
+            int vp = dto.getEntidad().getVotosPositivos();
+            dto.getEntidad().setVotosPositivos(vp+1);
+            dao.update(dto);
+            return prepareIndex();
+        } else {
+            return prepareUpdate();
+        }
+    }
+    
+    public String voteN() {
+        boolean valido = validate();
+        if (valido) {
+            int vn = dto.getEntidad().getVotosNegativos();
+            dto.getEntidad().setVotosNegativos(vn+1);
+            dao.update(dto);
+            return prepareIndex();
+        } else {
+            return prepareUpdate();
+        }
+    }
+    
     public void seleccionarPelicula(ActionEvent event) {
         String claveSel = (String) 
                 FacesContext.getCurrentInstance().

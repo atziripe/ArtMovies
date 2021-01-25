@@ -5,6 +5,7 @@ import com.ipn.mx.modelo.dto.PeliculaDTO;
 import com.ipn.mx.modelo.entidades.Pelicula;
 import com.ipn.mx.utilerias.HibernateUtil;
 import com.ipn.mx.utilerias.Utilerias;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
