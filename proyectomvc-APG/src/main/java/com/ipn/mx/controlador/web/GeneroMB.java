@@ -18,7 +18,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Atziri Perez
+ * @author El TEAM AFR
  */
 @ManagedBean(name = "GeneroMB")
 @SessionScoped

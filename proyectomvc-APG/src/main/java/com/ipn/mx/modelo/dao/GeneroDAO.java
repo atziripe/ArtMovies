@@ -18,7 +18,7 @@ import org.hibernate.query.Query;
 
 /**
  *
- * @author Team
+ * @author El TEAM AFR
  */
 public class GeneroDAO {
     

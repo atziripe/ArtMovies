@@ -12,7 +12,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
  *
- * @author EL TEAM
+ * @author El TEAM AFR
  */
 public class Conexion {
     private Connection con;
